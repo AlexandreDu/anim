@@ -1,42 +1,44 @@
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Typography } from "../typography";
+import type { DescriptionProps, LinkProps } from '../../types';
 
-type LinkData = {
-  label: string;
-  to: string;
-};
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-type DescriptionProps = {
-  title: React.ReactNode;
-  content: string;
-  linksData?: LinkData[];
-};
+import { useId } from 'react';
+
+import { Typography } from '../typography';
+import { Link } from '../link';
+
+const UL = styled.ul`
+  list-style: none;
+`;
 
 export const Description: React.FC<DescriptionProps> = ({
   title,
   content,
-  linksData,
+  links,
 }) => {
   return (
     <div>
-      <Typography renderAs="h1">{title}</Typography>
+      <Typography as="h1">{title}</Typography>
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5 }}
       >
-        <Typography as="p">{content}</Typography>
+        <Typography color="white" as="p">
+          {content}
+        </Typography>
       </motion.div>
-      <ul>
-        {linksData?.map(({ label, to }) => (
-          <li>
-            <Typography key={to} as={Link} to={to}>
-              {label}
-            </Typography>
-          </li>
-        ))}
-      </ul>
+      <UL>
+        {links?.map(({ to, children }) => {
+          const id = useId();
+          return (
+            <li key={id}>
+              <Link to={to}>{children}</Link>
+            </li>
+          );
+        })}
+      </UL>
     </div>
   );
 };

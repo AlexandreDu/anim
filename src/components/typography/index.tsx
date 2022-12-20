@@ -1,51 +1,79 @@
-import styled from "styled-components";
+import type {
+  TypographyStyleProps,
+  TextElement,
+  TypographyProps,
+  PolymorphicComponentProps,
+} from '../../types';
+import { Text, TextColor } from '../../enum';
 
-type AsProp<T extends React.ElementType> = {
-  as?: T;
+const textElementMap: Record<
+  Text,
+  { fontSize: string; color: TextColor; fontWeight: 400 | 700 }
+> = {
+  [Text.h1]: {
+    fontSize: '2.875rem',
+    color: TextColor.white,
+    fontWeight: 700,
+  },
+  [Text.h2]: {
+    fontSize: '2.5rem',
+    color: TextColor.white,
+    fontWeight: 700,
+  },
+  [Text.h3]: {
+    fontSize: '2rem',
+    color: TextColor.white,
+    fontWeight: 700,
+  },
+  [Text.p]: {
+    fontSize: '1.5rem',
+    color: TextColor.white,
+    fontWeight: 400,
+  },
+  [Text.span]: {
+    fontSize: '1.5rem',
+    color: TextColor.white,
+    fontWeight: 400,
+  },
 };
 
-type PropsToOmit<T extends React.ElementType, P> = keyof (AsProp<T> & P);
-
-type PolymorphicComponentProps<
-  T extends React.ElementType,
-  Props = {}
-> = React.PropsWithChildren<Props & AsProp<T>> &
-  Omit<React.ComponentPropsWithoutRef<T>, PropsToOmit<T, Props>>;
-
-type TypographyProps = {
-  color?: string;
+const colorMap: Record<TextColor, string> = {
+  [TextColor.white]: '#ffffff',
+  [TextColor.black]: '#000000',
 };
 
-const StyledTypography = styled.h1<{ as: keyof JSX.IntrinsicElements }>`
-  font-size: 2.5rem;
-
-  ${({ as }) => {
-    console.log("as", as);
-    switch (as) {
-      case "h1":
-        return `
-            font-size: 3rem;
-        `;
-      case "p":
-        return `
-            font-size: 1.5rem;
-            line-height: 2.5rem;
-        `;
-
-      default:
-        return ``;
-    }
-  }}
-`;
-
-export const Typography = <T extends React.ElementType>({
+export const Typography = <T extends TextElement>({
   children,
   as,
-  ...rest
+  variant,
+  color,
+  ...otherProps
 }: PolymorphicComponentProps<T, TypographyProps>) => {
+  const TagName: TextElement = as;
+
+  let style: TypographyStyleProps = {
+    style: {
+      fontSize: textElementMap[Text[as]].fontSize,
+      color: textElementMap[Text[as]].color,
+    },
+  };
+
+  style = variant
+    ? {
+        style: {
+          fontSize: textElementMap[variant].fontSize,
+          color: textElementMap[variant].color,
+        },
+      }
+    : style;
+
+  style.style.color = color ? (style.style.color = colorMap[color]) : '';
+
   return (
-    <StyledTypography as={as} {...rest}>
-      {children}
-    </StyledTypography>
+    <>
+      <TagName {...style} {...otherProps}>
+        {children}
+      </TagName>
+    </>
   );
 };
