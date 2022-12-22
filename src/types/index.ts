@@ -1,6 +1,11 @@
 import { Path } from 'react-router-dom';
 
 import { TextColor, Text } from '../enum';
+// Image
+
+export type ImageProps = {
+  src: string;
+};
 
 // Typography
 export type TypographyStyleProps = {
@@ -36,6 +41,7 @@ export type DescriptionProps = {
   title: React.ReactNode;
   content: string;
   links?: LinkProps[];
+  src?: string;
 };
 
 export type PolymorphicComponentProps<

@@ -1,14 +1,5 @@
-import styled from "styled-components";
-
-const StyledFooter = styled.footer`
-
-`
+import * as Styled from './styles';
 
 export const Footer: React.FC = () => {
-
-    return (
-        <StyledFooter>
-            Developers
-        </StyledFooter>
-    )
-}
+  return <Styled.Footer>Developers</Styled.Footer>;
+};
