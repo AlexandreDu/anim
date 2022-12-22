@@ -1,3 +1,4 @@
+import React from 'react';
 import { Path } from 'react-router-dom';
 
 import { TextColor, Text } from '../enum';
@@ -52,3 +53,11 @@ export type PolymorphicComponentProps<
     AsProp<T> &
     Omit<React.ComponentPropsWithoutRef<T>, PropsToOmit<T, Props>>
 >;
+
+// Highlight
+export type AnimatedHighlightProps = {
+  colorOne: string;
+  colorTwo: string;
+  colorThree: string;
+  children: React.ReactNode;
+};
