@@ -2,8 +2,15 @@ import React from 'react';
 import { Path } from 'react-router-dom';
 
 import { TextColor, Text } from '../enum';
-// Image
 
+// Layout
+export type LayoutProps = {
+  children: JSX.Element;
+  darkMode: boolean;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+// Image
 export type ImageProps = {
   src: string;
 };
@@ -12,6 +19,7 @@ export type ImageProps = {
 export type TypographyStyleProps = {
   style: {
     fontSize?: string;
+    lineHeight?: string;
     color?: string;
   };
 };
@@ -60,4 +68,10 @@ export type AnimatedHighlightProps = {
   colorTwo: string;
   colorThree: string;
   children: React.ReactNode;
+};
+
+// Switch
+export type SwitchProps = {
+  darkMode: boolean;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 };

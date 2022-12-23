@@ -35,9 +35,7 @@ export const Description: React.FC<DescriptionProps> = ({
         transition={{ delay: 0.5 }}
         viewport={{ once: true }}
       >
-        <Typography color="white" as="p">
-          {content}
-        </Typography>
+        <Typography as="p">{content}</Typography>
       </motion.div>
       <UL>
         {links?.map(({ to, children }) => {

@@ -4,14 +4,15 @@ import { Brand } from './brand';
 import { Navigation } from './navigation';
 
 const StyledHeader = styled.header`
-  background-color: #1a1a1a;
+  background-color: ${({ theme }) => theme.colors.background};
   font-weight: bold;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.text};
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 20;
+  transition: all 0.5s;
 `;
 
 export const Header: React.FC = () => {
