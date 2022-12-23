@@ -8,6 +8,6 @@ export const Layout = styled.div`
   transition: all 0.5s;
 `;
 export const PageWrapper = styled.div`
-  padding: 8.5rem 1.5rem 1.5rem 1.5rem;
+  padding: 9.5rem 1.5rem 1.5rem 1.5rem;
   flex-grow: 1;
 `;
