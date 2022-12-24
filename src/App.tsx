@@ -8,9 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 import { base, light, dark } from './styles/themes';
 
 import { Layout } from './components/layout';
-
-import { Home } from './pages';
-import { About } from './pages/about';
+import {AnimatedRoutes} from './components/animatedRoutes'
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -20,10 +18,7 @@ const App: React.FC = () => {
     <>
       <ThemeProvider theme={fullTheme}>
         <Layout darkMode={darkMode} setDarkMode={setDarkMode}>
-          <Routes>
-            <Route path={'/'} element={<Home />} />
-            <Route path={'/about'} element={<About />} />
-          </Routes>
+          <AnimatedRoutes />
         </Layout>
       </ThemeProvider>
     </>

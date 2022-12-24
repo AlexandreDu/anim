@@ -10,6 +10,8 @@ export type LayoutProps = {
   setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
+// MotionPage
+export type MotionPageProps = React.PropsWithChildren
 // Image
 export type ImageProps = {
   src: string;

@@ -1,5 +1,6 @@
 import { LinkProps } from '../types/index';
 
+import { MotionPage } from '../components/motionPage';
 import { Description } from '../components/description';
 import { AnimatedHighlight } from '../components/highlight';
 
@@ -14,7 +15,7 @@ const linksData: LinkProps[] = [
 
 export const Home: React.FC = () => {
   return (
-    <>
+    <MotionPage>
       <Description
         title={
           <>
@@ -74,6 +75,6 @@ export const Home: React.FC = () => {
         links={linksData}
         src={artThreePic}
       />
-    </>
+    </MotionPage>
   );
 };
