@@ -8,17 +8,12 @@ import { useId } from 'react';
 import * as Styled from './styles';
 import { Typography } from '../typography';
 import { Link } from '../link';
+import { Stack } from '../stack';
 
 import { FadeInImage } from '../image';
 
 const UL = styled.ul`
-  list-style: none;
-  padding-bottom: 1rem;
-
-  > li {
-    padding-top: 1rem;
-  }
-`;
+  list-style: none;`;
 
 export const Description: React.FC<DescriptionProps> = ({
   title,
@@ -37,17 +32,21 @@ export const Description: React.FC<DescriptionProps> = ({
       >
         <Typography as="p">{content}</Typography>
       </motion.div>
-      <UL>
-        {links?.map(({ to, children }) => {
-          const id = useId();
-          return (
-            <li key={id}>
-              <Link to={to}>{children}</Link>
-            </li>
-          );
-        })}
-      </UL>
-      {src && <FadeInImage src={src} />}
+      <Stack direction='vertical' space='md'>
+        <UL>
+          <Stack direction='vertical' space='md'>
+            {links?.map(({ to, children }) => {
+              const id = useId();
+              return (
+                <li key={id}>
+                  <Link to={to}>{children}</Link>
+                </li>
+              );
+            })}
+          </Stack>
+        </UL>
+        {src && <FadeInImage src={src} />}
+      </Stack>
     </Styled.Description>
   );
 };

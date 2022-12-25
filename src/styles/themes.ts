@@ -1,6 +1,12 @@
 export type BaseTheme = {
   breakpoints: { [key: string]: string };
-  space: string[];
+  space: {
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+    '2xl': string;
+  };
   fonts: {
     [key: string]: string;
   };
@@ -21,7 +27,13 @@ export const base: BaseTheme = {
     xl: '1280px',
     '2xl': '1536px',
   },
-  space: ['0px', '2px', '4px', '8px', '16px', '32px', '64px'],
+  space: {
+    sm: '0.25rem',
+    md: '1rem',
+    lg: '2rem',
+    xl: '4rem',
+    '2xl': '6rem'
+  },
   fonts: {
     heading: 'Mukta Mahee, sans-serif',
     body: 'Mukta Mahee, sans-serif',

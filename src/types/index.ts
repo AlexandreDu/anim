@@ -77,3 +77,11 @@ export type SwitchProps = {
   darkMode: boolean;
   setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+// Stack
+export type StackProps = React.PropsWithChildren<
+  {
+    direction: 'vertical' | 'horizontal';
+    space: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  }
+>

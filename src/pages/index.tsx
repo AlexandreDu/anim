@@ -1,6 +1,7 @@
 import { LinkProps } from '../types/index';
 
 import { MotionPage } from '../components/motionPage';
+import { Stack } from '../components/stack';
 import { Description } from '../components/description';
 import { AnimatedHighlight } from '../components/highlight';
 
@@ -16,65 +17,67 @@ const linksData: LinkProps[] = [
 export const Home: React.FC = () => {
   return (
     <MotionPage>
-      <Description
-        title={
-          <>
-            Framer{' '}
-            <AnimatedHighlight
-              colorOne="#ffffff"
-              colorTwo="#c1b"
-              colorThree="#72f"
-            >
-              Motion
-            </AnimatedHighlight>
-          </>
-        }
-        content={
-          'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.'
-        }
-        links={linksData}
-        src={artOnePic}
-      />
+      <Stack direction='vertical' space='2xl'>
+        <Description
+          title={
+            <>
+              Framer{' '}
+              <AnimatedHighlight
+                colorOne="#ffffff"
+                colorTwo="#c1b"
+                colorThree="#72f"
+              >
+                Motion
+              </AnimatedHighlight>
+            </>
+          }
+          content={
+            'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.'
+          }
+          links={linksData}
+          src={artOnePic}
+        />
 
-      <Description
-        title={
-          <>
-            ZZZZZ{' '}
-            <AnimatedHighlight
-              colorOne="#ffffff"
-              colorTwo="#ef270a"
-              colorThree="#7ac201"
-            >
-              Motion
-            </AnimatedHighlight>
-          </>
-        }
-        content={
-          'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.'
-        }
-        links={linksData}
-        src={artTwoPic}
-      />
+        <Description
+          title={
+            <>
+              ZZZZZ{' '}
+              <AnimatedHighlight
+                colorOne="#ffffff"
+                colorTwo="#ef270a"
+                colorThree="#7ac201"
+              >
+                Motion
+              </AnimatedHighlight>
+            </>
+          }
+          content={
+            'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.'
+          }
+          links={linksData}
+          src={artTwoPic}
+        />
 
-      <Description
-        title={
-          <>
-            Framer{' '}
-            <AnimatedHighlight
-              colorOne="#ffffff"
-              colorTwo="#5b9fad"
-              colorThree="#bc5624"
-            >
-              Motion
-            </AnimatedHighlight>
-          </>
-        }
-        content={
-          'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.'
-        }
-        links={linksData}
-        src={artThreePic}
-      />
+        <Description
+          title={
+            <>
+              Framer{' '}
+              <AnimatedHighlight
+                colorOne="#ffffff"
+                colorTwo="#5b9fad"
+                colorThree="#bc5624"
+              >
+                Motion
+              </AnimatedHighlight>
+            </>
+          }
+          content={
+            'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.'
+          }
+          links={linksData}
+          src={artThreePic}
+        />
+      </Stack>
     </MotionPage>
   );
 };
