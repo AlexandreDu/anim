@@ -5,13 +5,18 @@ import * as Styled from './styles';
 
 const MotionBall = motion(Styled.Ball);
 
-export const Switch: React.FC<SwitchProps> = ({ darkMode, setDarkMode }) => {
+export const Switch: React.FC<SwitchProps> = ({ on, setOn, offIcon, onIcon }) => {
   return (
-    <Styled.Container
-      darkMode={darkMode}
-      onClick={() => setDarkMode((prevState) => !prevState)}
+    <Styled.Switch
+      on={on}
+      onClick={() => setOn((prevState) => !prevState)}
     >
-      <MotionBall layout />
-    </Styled.Container>
+      <Styled.OffIconWrapper on={on}>
+        {on ? offIcon : onIcon}
+      </Styled.OffIconWrapper>
+      <MotionBall layout on={on}>
+        {on ? onIcon : offIcon}
+      </MotionBall>
+    </Styled.Switch>
   );
 };

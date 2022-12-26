@@ -3,7 +3,6 @@ import type { FullTheme } from './styles/themes';
 import { useState } from 'react';
 
 import { ThemeProvider } from 'styled-components';
-import { Routes, Route } from 'react-router-dom';
 
 import { base, light, dark } from './styles/themes';
 

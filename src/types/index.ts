@@ -1,6 +1,6 @@
+import type { IconType } from 'react-icons/lib/esm/iconBase';
 import React from 'react';
 import { Path } from 'react-router-dom';
-
 import { TextColor, Text } from '../enum';
 
 // Layout
@@ -74,8 +74,10 @@ export type AnimatedHighlightProps = {
 
 // Switch
 export type SwitchProps = {
-  darkMode: boolean;
-  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+  on: boolean;
+  setOn: React.Dispatch<React.SetStateAction<boolean>>;
+  offIcon?: JSX.Element;
+  onIcon?: JSX.Element;
 };
 
 type Direction = 'vertical' | 'horizontal';
