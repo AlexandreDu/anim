@@ -78,10 +78,15 @@ export type SwitchProps = {
   setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
+type Direction = 'vertical' | 'horizontal';
+type Space = 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 // Stack
 export type StackProps = React.PropsWithChildren<
   {
-    direction: 'vertical' | 'horizontal';
-    space: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    direction: Direction;
+    space: Space;
   }
 >
+
+// Spacer
+export type SpacerProps = StackProps
