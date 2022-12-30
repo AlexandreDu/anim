@@ -13,9 +13,13 @@ export const NavList = styled.ul`
   justify-content: space-between;
   font-size: 1.25rem;
   list-style: none;
-  overflow-x: scroll;
+  overflow-x: auto;
   > li {
     padding-right: 1rem;
     white-space: nowrap;
+  }
+  @media (min-width: ${({theme}) => theme.breakpoints.sm}) {
+    width: 95%;
+    justify-content: flex-start;
   }
 `;

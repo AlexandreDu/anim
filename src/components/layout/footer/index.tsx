@@ -1,5 +1,5 @@
 import * as Styled from './styles';
 
-export const Footer: React.FC = () => {
+export function Footer() {
   return <Styled.Footer>Developers</Styled.Footer>;
-};
+}

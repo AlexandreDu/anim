@@ -4,12 +4,12 @@ import * as Styled from './styles';
 import { motion } from 'framer-motion';
 const MotionHighlight = motion(Styled.Highlight);
 
-export const AnimatedHighlight: React.FC<AnimatedHighlightProps> = ({
+export function AnimatedHighlight({
   children,
   colorOne,
   colorTwo,
   colorThree,
-}) => {
+}: AnimatedHighlightProps) {
   return (
     <MotionHighlight
       initial={{
@@ -30,4 +30,4 @@ export const AnimatedHighlight: React.FC<AnimatedHighlightProps> = ({
       {children}
     </MotionHighlight>
   );
-};
+}

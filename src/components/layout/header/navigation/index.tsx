@@ -2,7 +2,7 @@ import * as Styled from './styles';
 
 const navItems = ['Motion', 'Handshake', 'Guides', 'API Documentation'];
 
-export const Navigation: React.FC = () => {
+export function Navigation() {
   return (
     <Styled.Navigation>
       <Styled.NavList>
@@ -12,4 +12,4 @@ export const Navigation: React.FC = () => {
       </Styled.NavList>
     </Styled.Navigation>
   );
-};
+}

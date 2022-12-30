@@ -14,6 +14,7 @@ export const content = [
           { children: 'About', to: '/about' },
           { children: 'Test', to: '/test' }
         ],
+        linksColor: '#c1b',
         src: artOnePic
     },
     {
@@ -27,6 +28,7 @@ export const content = [
         { children: 'About', to: '/about' },
         { children: 'Test', to: '/test' }
       ],
+      linksColor: '#ef270a',
       src: artTwoPic
   },
   {
@@ -40,6 +42,7 @@ export const content = [
       { children: 'About', to: '/about' },
       { children: 'Test', to: '/test' }
     ],
+    linksColor: '#5b9fad',
     src: artThreePic
 },
 ]

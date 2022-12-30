@@ -14,13 +14,13 @@ const colorMap: Record<TextColor, string> = {
   [TextColor.black]: '#000000',
 };
 
-export const Typography = <T extends TextElement>({
+export function Typography<T extends TextElement>({
   children,
   as,
   variant,
   color,
   ...otherProps
-}: PolymorphicComponentProps<T, TypographyProps>) => {
+}: PolymorphicComponentProps<T, TypographyProps>) {
   const theme = useTheme();
 
   const textElementMap: Record<
@@ -91,4 +91,4 @@ export const Typography = <T extends TextElement>({
       </TagName>
     </>
   );
-};
+}

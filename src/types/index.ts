@@ -1,7 +1,9 @@
-import type { IconType } from 'react-icons/lib/esm/iconBase';
 import React from 'react';
 import { Path } from 'react-router-dom';
 import { TextColor, Text } from '../enum';
+
+// theme 's breakpoints
+export type BreakPoints = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 // Layout
 export type LayoutProps = {
@@ -11,7 +13,7 @@ export type LayoutProps = {
 };
 
 // MotionPage
-export type MotionPageProps = React.PropsWithChildren
+export type MotionPageProps = React.PropsWithChildren;
 // Image
 export type ImageProps = {
   src: string;
@@ -52,12 +54,13 @@ export type DescriptionProps = {
   title: React.ReactNode;
   content: string;
   links?: LinkProps[];
+  linksColor?: string;
   src?: string;
 };
 
 export type PolymorphicComponentProps<
   T extends TextElement,
-  Props = {}
+  Props = Record<string, never>
 > = React.PropsWithChildren<
   Props &
     AsProp<T> &
@@ -81,14 +84,13 @@ export type SwitchProps = {
 };
 
 type Direction = 'vertical' | 'horizontal';
-type Space = 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+export type Space = BreakPoints;
+
 // Stack
-export type StackProps = React.PropsWithChildren<
-  {
-    direction: Direction;
-    space: Space;
-  }
->
+export type StackProps = React.PropsWithChildren<{
+  direction: Direction;
+  space: Space;
+}>;
 
 // Spacer
-export type SpacerProps = StackProps
+export type SpacerProps = StackProps;

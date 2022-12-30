@@ -1,16 +1,15 @@
-import type { MotionPageProps } from "../../types"
+import type { MotionPageProps } from '../../types';
 
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion';
 
-export const MotionPage:React.FC<MotionPageProps> = ({children}) => {
-
-    return (
-        <motion.div 
-            initial={{opacity: 0}} 
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-        >
-            {children}
-        </motion.div>
-    )
+export function MotionPage({ children }: MotionPageProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {children}
+    </motion.div>
+  );
 }

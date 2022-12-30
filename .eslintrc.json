@@ -3,19 +3,21 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "standard-with-typescript"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
+  ],
   "overrides": [],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+    "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "comma-dangle": "off",
-    "@typescript-eslint/comma-dangle": ["error", "only-multiline"],
-    "@typescript-eslint/explicit-function-return-type": {
-      "allowExpressions": 0
-    }
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   }
 }

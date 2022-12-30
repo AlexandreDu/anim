@@ -6,5 +6,10 @@ export const ImageWrapper = styled.div`
 
 export const Image = styled.img`
   display: block;
-  width: 1500px;
+  max-width: 100%;
+  height: 400px;
+  object-fit: cover;
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    height: auto;
+  }
 `;
