@@ -26,6 +26,7 @@ export const base: BaseTheme = {
     '2xl': '1536px',
   },
   space: {
+    none: '0rem',
     sm: '0.25rem',
     md: '1rem',
     lg: '2rem',

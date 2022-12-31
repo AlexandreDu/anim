@@ -18,12 +18,13 @@ export function Description({
   links,
   linksColor,
   src,
+  minHeightToSubstract,
 }: DescriptionProps) {
   const mdAndUp = useMedia('md');
   return (
-    <Styled.Description>
+    <Styled.Description minHeightToSubstract={minHeightToSubstract}>
       <Flex>
-        <div style={{ flex: '0 1 50%' }}>
+        <div>
           <Typography as='h1'>{title}</Typography>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -51,9 +52,7 @@ export function Description({
             </UL>
           </Stack>
         </div>
-        <div style={{ flex: '1 0 50% ' }}>
-          {src && <FadeInImage src={src} />}
-        </div>
+        <div>{src && <FadeInImage src={src} />}</div>
       </Flex>
     </Styled.Description>
   );

@@ -1,7 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@800&display=swap');
+    html {
+        scroll-snap-type: y mandatory;
+    }
     *{
         margin: 0;
         padding: 0;

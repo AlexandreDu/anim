@@ -4,17 +4,25 @@ import { Stack } from '../components/stack';
 import { Description } from '../components/description';
 import { AnimatedHighlight } from '../components/highlight';
 
-import { content } from '../content/home';
+import {
+  pageWrapperPaddingTop,
+  pageWrapperPaddingBottom,
+} from '../components/layout/styles';
+import { switchHeight } from '../components/switch/styles';
+import { footerHeight } from '../components/layout/footer/styles';
+
+import { homeContent } from '../content/home';
 
 import { useMedia } from '../hooks/useMedia';
+
 export function Home() {
   const mdAndUp = useMedia('md');
   console.log('mdAndUp', mdAndUp);
   return (
     <MotionPage>
-      <Spacer direction='vertical' space='xl' />
-      <Stack direction='vertical' space='2xl'>
-        {content.map(
+      <Spacer direction='vertical' space={mdAndUp ? 'none' : 'xl'} />
+      <Stack direction='vertical' space={mdAndUp ? 'none' : '2xl'}>
+        {homeContent.map(
           (
             {
               staticTitle,
@@ -29,6 +37,12 @@ export function Home() {
             },
             index
           ) => {
+            let minHeightToSubstract = pageWrapperPaddingTop;
+            if (index === 0)
+              minHeightToSubstract = `calc(${pageWrapperPaddingTop} + ${switchHeight})`;
+            console.log(minHeightToSubstract);
+            if (index === homeContent.length - 1)
+              minHeightToSubstract = `calc( ${pageWrapperPaddingTop} + ${pageWrapperPaddingBottom} + ${footerHeight})`;
             return (
               <Description
                 key={index}
@@ -48,6 +62,7 @@ export function Home() {
                 links={links}
                 linksColor={linksColor}
                 src={src}
+                minHeightToSubstract={minHeightToSubstract}
               />
             );
           }

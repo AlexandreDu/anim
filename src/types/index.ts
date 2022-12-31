@@ -56,6 +56,7 @@ export type DescriptionProps = {
   links?: LinkProps[];
   linksColor?: string;
   src?: string;
+  minHeightToSubstract?: string;
 };
 
 export type PolymorphicComponentProps<
@@ -84,7 +85,7 @@ export type SwitchProps = {
 };
 
 type Direction = 'vertical' | 'horizontal';
-export type Space = BreakPoints;
+export type Space = BreakPoints | 'none';
 
 // Stack
 export type StackProps = React.PropsWithChildren<{

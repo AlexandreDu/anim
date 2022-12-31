@@ -1,35 +1,37 @@
-import artOnePic from '../../assets/images/art-1.jpg'
-import artTwoPic from '../../assets/images/art-2.jpg'
-import artThreePic from '../../assets/images/art-3.jpg'
+import artOnePic from '../../assets/images/art-1.jpg';
+import artTwoPic from '../../assets/images/art-2.jpg';
+import artThreePic from '../../assets/images/art-3.jpg';
 
-export const content = [
-    {
-        staticTitle: 'Framer',
-        animatedTitle: 'Motion',
-        colorOne: '#ffffff',
-        colorTwo: '#c1b',
-        colorThree: '#72f',
-        content: 'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.',
-        links: [
-          { children: 'About', to: '/about' },
-          { children: 'Test', to: '/test' }
-        ],
-        linksColor: '#c1b',
-        src: artOnePic
-    },
-    {
-      staticTitle: 'Art &',
-      animatedTitle: 'Motion',
-      colorOne: '#ffffff',
-      colorTwo: '#ef270a',
-      colorThree: '#7ac201',
-      content: 'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.',
-      links: [
-        { children: 'About', to: '/about' },
-        { children: 'Test', to: '/test' }
-      ],
-      linksColor: '#ef270a',
-      src: artTwoPic
+export const homeContent = [
+  {
+    staticTitle: 'Framer',
+    animatedTitle: 'Motion',
+    colorOne: '#ffffff',
+    colorTwo: '#c1b',
+    colorThree: '#72f',
+    content:
+      'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.',
+    links: [
+      { children: 'About', to: '/about' },
+      { children: 'Test', to: '/test' },
+    ],
+    linksColor: '#c1b',
+    src: artOnePic,
+  },
+  {
+    staticTitle: 'Art &',
+    animatedTitle: 'Motion',
+    colorOne: '#ffffff',
+    colorTwo: '#ef270a',
+    colorThree: '#7ac201',
+    content:
+      'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.',
+    links: [
+      { children: 'About', to: '/about' },
+      { children: 'Test', to: '/test' },
+    ],
+    linksColor: '#ef270a',
+    src: artTwoPic,
   },
   {
     staticTitle: 'Art &',
@@ -37,12 +39,13 @@ export const content = [
     colorOne: '#ffffff',
     colorTwo: '#5b9fad',
     colorThree: '#bc5624',
-    content: 'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.',
+    content:
+      'A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source.',
     links: [
       { children: 'About', to: '/about' },
-      { children: 'Test', to: '/test' }
+      { children: 'Test', to: '/test' },
     ],
     linksColor: '#5b9fad',
-    src: artThreePic
-},
-]
+    src: artThreePic,
+  },
+];

@@ -10,8 +10,10 @@ export const Layout = styled.div`
     align-items: center;
   }
 `;
+export const pageWrapperPaddingTop = '9.5rem';
+export const pageWrapperPaddingBottom = '1.5rem';
 export const PageWrapper = styled.div`
-  padding: 9.5rem 1.5rem 1.5rem 1.5rem;
+  padding: ${pageWrapperPaddingTop} 1.5rem 1.5rem 1.5rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;

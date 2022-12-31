@@ -10,5 +10,8 @@ export const Flex = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     flex-direction: row;
     align-items: center;
+    > * {
+      flex: 0 1 50%;
+    }
   }
 `;
