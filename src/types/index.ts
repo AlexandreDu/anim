@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Path } from 'react-router-dom';
 import { TextColor, Text } from '../enum';
+
+// theme
+export type BaseTheme = {
+  breakpoints: { [key in BreakPoints]: string };
+  space: {
+    [key in Space]: string;
+  };
+  fonts: {
+    [key: string]: string;
+  };
+  fontSizes: { [key: string]: string };
+  lineHeights: { [key: string]: string };
+};
 
 // theme 's breakpoints
 export type BreakPoints = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
+// ThemesProvider
+export type ThemesProviderProps = PropsWithChildren;
+
 // Layout
-export type LayoutProps = {
-  children: JSX.Element;
-  darkMode: boolean;
-  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
-};
+export type LayoutProps = PropsWithChildren;
 
 // MotionPage
-export type MotionPageProps = React.PropsWithChildren;
+export type MotionPageProps = PropsWithChildren;
 // Image
 export type ImageProps = {
   src: string;
@@ -50,13 +62,32 @@ export interface LinkProps
   reloadDocument?: boolean;
 }
 
+export type NavLinkProps = LinkProps;
+
+export type DescriptionsListProps = {
+  isLastItemBeforeFooter?: boolean;
+  list: {
+    staticTitle: string;
+    animatedTitle: string;
+    colorOne: string;
+    colorTwo: string;
+    colorThree: string;
+    content: string;
+    links?: {
+      children: string;
+      to: string;
+    }[];
+    linksColor: string;
+    src?: string;
+  }[];
+};
+
 export type DescriptionProps = {
   title: React.ReactNode;
   content: string;
   links?: LinkProps[];
   linksColor?: string;
   src?: string;
-  minHeightToSubstract?: string;
 };
 
 export type PolymorphicComponentProps<
@@ -79,7 +110,7 @@ export type AnimatedHighlightProps = {
 // Switch
 export type SwitchProps = {
   on: boolean;
-  setOn: React.Dispatch<React.SetStateAction<boolean>>;
+  setOn: () => void;
   offIcon?: JSX.Element;
   onIcon?: JSX.Element;
 };

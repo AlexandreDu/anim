@@ -1,16 +1,4 @@
-import type { BreakPoints, Space } from '../types';
-
-export type BaseTheme = {
-  breakpoints: { [key in BreakPoints]: string };
-  space: {
-    [key in Space]: string;
-  };
-  fonts: {
-    [key: string]: string;
-  };
-  fontSizes: { [key: string]: string };
-  lineHeights: { [key: string]: string };
-};
+import type { BaseTheme } from '../types';
 
 export type ColorTheme = typeof light;
 type Colors = {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Navigation = styled.nav`
-  // margin-top: 0.5rem;
+  flex-grow: 1;
 `;
 
 export const NavList = styled.ul`
@@ -11,6 +11,7 @@ export const NavList = styled.ul`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 1.25rem;
   list-style: none;
   overflow-x: auto;
@@ -18,7 +19,10 @@ export const NavList = styled.ul`
     padding-right: 1rem;
     white-space: nowrap;
   }
-  @media (min-width: ${({theme}) => theme.breakpoints.sm}) {
+  > li > a {
+    text-decoration: none;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     width: 95%;
     justify-content: flex-start;
   }

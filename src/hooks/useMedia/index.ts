@@ -7,7 +7,6 @@ export const useMedia = (media: BreakPoints) => {
   const query = `(min-width: ${theme.breakpoints[media]})`;
 
   const getMatches = useCallback(() => {
-    console.log('getMatches');
     return window.matchMedia(query).matches;
   }, [query]);
 
@@ -23,7 +22,6 @@ export const useMedia = (media: BreakPoints) => {
     matchMedia.addEventListener('change', handleChange);
     // clean up
     return () => {
-      console.log('cleanup');
       matchMedia.removeEventListener('change', handleChange);
     };
   }, [media, handleChange, getMatches, theme.breakpoints, query]);

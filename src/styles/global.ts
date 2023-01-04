@@ -1,9 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-
+import { headerHeight } from '../components/layout/header/styles';
 export default createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@800&display=swap');
+   
     html {
         scroll-snap-type: y mandatory;
+        scroll-padding: ${headerHeight} 0 0 0;
     }
     *{
         margin: 0;

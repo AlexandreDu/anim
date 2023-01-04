@@ -9,7 +9,7 @@ export const Image = styled.img`
   max-width: 100%;
   height: 400px;
   object-fit: cover;
-  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     height: auto;
   }
 `;

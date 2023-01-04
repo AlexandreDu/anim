@@ -7,7 +7,7 @@ const MotionBall = motion(Styled.Ball);
 
 export function Switch({ on, setOn, offIcon, onIcon }: SwitchProps) {
   return (
-    <Styled.Switch $on={on} onClick={() => setOn((prevState) => !prevState)}>
+    <Styled.Switch $on={on} onClick={setOn}>
       <Styled.OffIconWrapper $on={on}>
         {on ? offIcon : onIcon}
       </Styled.OffIconWrapper>

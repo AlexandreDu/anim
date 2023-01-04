@@ -11,6 +11,7 @@ import { Link } from '../link';
 import { Stack } from '../stack';
 
 import { FadeInImage } from '../image';
+import { Spacer } from '../spacer';
 
 export function Description({
   title,
@@ -18,41 +19,45 @@ export function Description({
   links,
   linksColor,
   src,
-  minHeightToSubstract,
 }: DescriptionProps) {
   const mdAndUp = useMedia('md');
   return (
-    <Styled.Description minHeightToSubstract={minHeightToSubstract}>
+    <Styled.Description>
       <Flex>
         <div>
-          <Typography as='h1'>{title}</Typography>
+          <Typography as="h1">{title}</Typography>
+          <Spacer direction="vertical" space="md" />
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <Typography as='p' variant={mdAndUp ? 'h3' : 'p'}>
+            <Typography as="p" variant={mdAndUp ? 'h3' : 'p'}>
               {content}
             </Typography>
           </motion.div>
-          <Stack direction='vertical' space='md'>
-            <UL>
-              <Stack direction='vertical' space='md'>
-                {links?.map(({ to, children }, index) => {
-                  return (
-                    <li key={index}>
-                      <Link color={linksColor} to={to}>
-                        {children}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </Stack>
-            </UL>
-          </Stack>
+          <Spacer direction="vertical" space="md" />
+          <UL>
+            <Stack direction="vertical" space="md">
+              {links?.map(({ to, children }, index) => {
+                return (
+                  <li key={index}>
+                    <Link color={linksColor} to={to}>
+                      {children}
+                    </Link>
+                  </li>
+                );
+              })}
+            </Stack>
+          </UL>
+          <Spacer direction="vertical" space="md" />
         </div>
-        <div>{src && <FadeInImage src={src} />}</div>
+        {src && (
+          <div>
+            <FadeInImage src={src} />
+          </div>
+        )}
       </Flex>
     </Styled.Description>
   );

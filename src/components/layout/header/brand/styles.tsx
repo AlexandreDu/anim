@@ -5,8 +5,9 @@ export const Brand = styled.div`
   justify-content: center;
   align-items: center;
   border-bottom: 1px #474747 solid;
+  position: relative;
 `;
 
 export const Title = styled.span`
-  font-size: 18px;
+  font-size: ${({ theme }) => theme.fontSizes.md};
 `;
