@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const switchHeight = '2.2rem';
@@ -23,7 +24,7 @@ export const OffIconWrapper = styled.div<{ $on: boolean }>`
   width: 1.5rem;
 `;
 
-export const Ball = styled.div<{ $on: boolean }>`
+export const Ball = styled(motion.div)<{ $on: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,9 +1,6 @@
 import type { SwitchProps } from '../../types';
 
-import { motion } from 'framer-motion';
 import * as Styled from './styles';
-
-const MotionBall = motion(Styled.Ball);
 
 export function Switch({ on, setOn, offIcon, onIcon }: SwitchProps) {
   return (
@@ -11,9 +8,9 @@ export function Switch({ on, setOn, offIcon, onIcon }: SwitchProps) {
       <Styled.OffIconWrapper $on={on}>
         {on ? offIcon : onIcon}
       </Styled.OffIconWrapper>
-      <MotionBall layout $on={on}>
+      <Styled.Ball layout $on={on}>
         {on ? onIcon : offIcon}
-      </MotionBall>
+      </Styled.Ball>
     </Styled.Switch>
   );
 }

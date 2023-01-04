@@ -1,8 +1,6 @@
 import type { AnimatedHighlightProps } from '../../types';
 
 import * as Styled from './styles';
-import { motion } from 'framer-motion';
-const MotionHighlight = motion(Styled.Highlight);
 
 export function AnimatedHighlight({
   children,
@@ -11,7 +9,7 @@ export function AnimatedHighlight({
   colorThree,
 }: AnimatedHighlightProps) {
   return (
-    <MotionHighlight
+    <Styled.Highlight
       initial={{
         background: `linear-gradient(145deg, ${colorOne}, ${colorTwo})`,
         backgroundClip: 'text',
@@ -28,6 +26,6 @@ export function AnimatedHighlight({
       transition={{ ease: 'easeOut', duration: 0.75 }}
     >
       {children}
-    </MotionHighlight>
+    </Styled.Highlight>
   );
 }
