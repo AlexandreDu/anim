@@ -3,10 +3,10 @@ import * as Styled from './styles';
 import { useTheme } from 'styled-components';
 import { motion, useAnimationControls } from 'framer-motion';
 
-export function Svg({
-  animationsCompleted,
+export function HomeSvg({
+  onAnimationsCompleted,
 }: {
-  animationsCompleted?: () => void;
+  onAnimationsCompleted?: () => void;
 }) {
   const theme = useTheme();
   const edgeControls = useAnimationControls();
@@ -45,7 +45,7 @@ export function Svg({
         transition: { ease: 'easeInOut', duration: 1 },
       });
 
-      animationsCompleted && animationsCompleted();
+      onAnimationsCompleted && onAnimationsCompleted();
     };
     sequence();
   }, [
@@ -53,7 +53,7 @@ export function Svg({
     edgeControls,
     lineControls,
     rectControls,
-    animationsCompleted,
+    onAnimationsCompleted,
   ]);
 
   return (
@@ -104,19 +104,8 @@ export function Svg({
         stroke={'#5b9fad'}
         initial={{ pathLength: 0 }}
         animate={lineControls}
-        // initial={{ pathLength: 0 }}
-        // animate={lineControls}
         d="M 10 94 H50"
-        // transition={{ duration: 1, ease: 'easeInOut', delay: 3 }}
       />
-
-      {/* <motion.polygon
-        initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1.1 }}
-        transition={{ duration: 1, ease: 'easeInOut', delay: 1 }}
-        stroke={'#5b9fad'}
-        points="20,90 30,70 40,90"
-      /> */}
     </Styled.Svg>
   );
 }

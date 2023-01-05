@@ -1,10 +1,10 @@
-import { useState, useCallback } from 'react';
-
 import styled from 'styled-components';
+
+import { useAnimatedTitles } from '../hooks/useAnimatedTitles';
 
 import { AnimatedPage } from '../components/animatedPage';
 import { AnimatedTitles } from '../components/animatedTitles';
-import { Svg } from '../components/svg';
+import { HomeSvg } from '../components/svg';
 
 const SvgWrapper = styled.div`
   align-self: center;
@@ -26,19 +26,17 @@ const SvgWrapper = styled.div`
 `;
 
 export function Home() {
-  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
-  const changeTitle = useCallback(() => {
-    setIsAnimationCompleted(true);
-  }, []);
+  const [isSecondTitleDisplayed, switchTitle] = useAnimatedTitles();
+
   return (
     <AnimatedPage>
       <AnimatedTitles
-        titleOne="Abstract."
-        titleTwo="Artworks."
-        showSecondTitle={isAnimationCompleted}
+        titleOne="Abstract"
+        titleTwo="Paintings."
+        showSecondTitle={isSecondTitleDisplayed}
       />
       <SvgWrapper>
-        <Svg animationsCompleted={changeTitle} />
+        <HomeSvg onAnimationsCompleted={switchTitle} />
       </SvgWrapper>
     </AnimatedPage>
   );
