@@ -22,7 +22,7 @@ export function Brand() {
   const toggleDarkMode = useContext(DarkModeUpdateContext);
   return (
     <Styled.Brand>
-      <Styled.Title>Abstract Art</Styled.Title>
+      <Styled.Title>Art</Styled.Title>
       <BottomRight>
         <Switch
           on={darkMode}

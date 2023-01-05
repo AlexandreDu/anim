@@ -16,7 +16,7 @@ export type BaseTheme = {
 };
 
 // theme 's breakpoints
-export type BreakPoints = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export type BreakPoints = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 // ThemesProvider
 export type ThemesProviderProps = PropsWithChildren;
@@ -25,7 +25,9 @@ export type ThemesProviderProps = PropsWithChildren;
 export type LayoutProps = PropsWithChildren;
 
 // MotionPage
-export type MotionPageProps = PropsWithChildren;
+export type MotionPageProps = PropsWithChildren<{
+  spacerTopDisabled?: boolean;
+}>;
 // Image
 export type ImageProps = {
   src: string;

@@ -1,15 +1,122 @@
+import { useEffect } from 'react';
 import * as Styled from './styles';
 import { useTheme } from 'styled-components';
+import { motion, useAnimationControls } from 'framer-motion';
 
-export function Svg() {
+export function Svg({
+  animationsCompleted,
+}: {
+  animationsCompleted?: () => void;
+}) {
   const theme = useTheme();
+  const edgeControls = useAnimationControls();
+  const circleControls = useAnimationControls();
+  const rectControls = useAnimationControls();
+  const lineControls = useAnimationControls();
+
+  useEffect(() => {
+    const sequence = async () => {
+      await circleControls.start({
+        pathLength: 1.1,
+        transition: { delay: 0.5, ease: 'easeInOut', duration: 1 },
+      });
+
+      await rectControls.start({
+        pathLength: 1.1,
+        transition: { ease: 'easeInOut', duration: 1 },
+      });
+      await rectControls.start({
+        fill: '#72f',
+        transition: { ease: 'easeInOut', duration: 1 },
+      });
+      await rectControls.start({
+        height: 88,
+        transition: { ease: 'easeInOut', duration: 1 },
+      });
+      await lineControls.start((i) => {
+        console.log('i', i);
+        return {
+          pathLength: 1.1,
+          transition: { ease: 'easeInOut', duration: 1, delay: i * 0.5 },
+        };
+      });
+      await edgeControls.start({
+        pathLength: 1.1,
+        transition: { ease: 'easeInOut', duration: 1 },
+      });
+
+      animationsCompleted && animationsCompleted();
+    };
+    sequence();
+  }, [
+    circleControls,
+    edgeControls,
+    lineControls,
+    rectControls,
+    animationsCompleted,
+  ]);
 
   return (
-    <Styled.Svg animate={{ rotate: 360 }}>
-      <path
-        fill={theme.colors.text}
-        d="M19.47,10.54A6,6,0,0,0,14,7a5.82,5.82,0,0,0-1.39.18,5,5,0,0,0-9,2A3,3,0,0,0,4.5,15h1a4,4,0,0,0,0,.5A3.5,3.5,0,0,0,9,19h9.17a4.33,4.33,0,0,0,1.3-8.46ZM4.5,13a1,1,0,0,1,0-2,1,1,0,0,0,1-1,3,3,0,0,1,3-3,3,3,0,0,1,2.22,1,6,6,0,0,0-2.66,4.13,3.49,3.49,0,0,0-1.5.87Zm13.67,4H9a1.5,1.5,0,0,1,0-3,1,1,0,0,0,1-1,4,4,0,0,1,7.78-1.29,1,1,0,0,0,.78.67A2.33,2.33,0,0,1,18.17,17Z"
+    <Styled.Svg>
+      <motion.path
+        initial={{ pathLength: 0 }}
+        animate={edgeControls}
+        d="M0 0 L100 0 L100 100 L0 100 L 0 0"
       />
+      <motion.circle
+        stroke={'#c1b'}
+        strokeWidth={2}
+        initial={{ pathLength: 0 }}
+        animate={circleControls}
+        r="25"
+        cx="30"
+        cy="30"
+      />
+      <motion.rect
+        // stroke={'#ef270a'}
+        x="60"
+        y="6"
+        initial={{
+          width: 30,
+          height: 30,
+          pathLength: 0,
+          fill: theme.colors.background,
+        }}
+        animate={rectControls}
+        transition={{ duration: 1, ease: 'easeInOut', delay: 1 }}
+      />
+      <motion.path
+        custom={0}
+        stroke={'#5b9fad'}
+        initial={{ pathLength: 0 }}
+        animate={lineControls}
+        d="M 10 62 H50"
+      />
+      <motion.path
+        custom={1}
+        stroke={'#5b9fad'}
+        initial={{ pathLength: 0 }}
+        animate={lineControls}
+        d="M 10 78 H50"
+      />
+      <motion.path
+        custom={2}
+        stroke={'#5b9fad'}
+        initial={{ pathLength: 0 }}
+        animate={lineControls}
+        // initial={{ pathLength: 0 }}
+        // animate={lineControls}
+        d="M 10 94 H50"
+        // transition={{ duration: 1, ease: 'easeInOut', delay: 3 }}
+      />
+
+      {/* <motion.polygon
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1.1 }}
+        transition={{ duration: 1, ease: 'easeInOut', delay: 1 }}
+        stroke={'#5b9fad'}
+        points="20,90 30,70 40,90"
+      /> */}
     </Styled.Svg>
   );
 }

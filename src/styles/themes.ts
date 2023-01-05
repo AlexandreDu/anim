@@ -11,7 +11,7 @@ export const base: BaseTheme = {
     md: '768px',
     lg: '1024px',
     xl: '1280px',
-    '2xl': '1536px',
+    xxl: '1536px',
   },
   space: {
     none: '0rem',
@@ -19,7 +19,7 @@ export const base: BaseTheme = {
     md: '1rem',
     lg: '2rem',
     xl: '4rem',
-    '2xl': '6rem',
+    xxl: '6rem',
   },
   fonts: {
     heading: 'Mukta Mahee, sans-serif',

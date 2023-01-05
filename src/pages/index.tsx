@@ -1,30 +1,45 @@
-import { useTheme } from 'styled-components';
+import { useState, useCallback } from 'react';
 
-import { useMedia } from '../hooks/useMedia';
+import styled from 'styled-components';
 
-import { MotionPage } from '../components/motionPage';
-import { Typography } from '../components/typography';
+import { AnimatedPage } from '../components/animatedPage';
+import { AnimatedTitles } from '../components/animatedTitles';
 import { Svg } from '../components/svg';
 
-import { headerHeight } from '../components/layout/header/styles';
-import { pageWrapperPaddingBottom } from '../components/layout/styles';
-import { footerHeight } from '../components/layout/footer/styles';
+const SvgWrapper = styled.div`
+  align-self: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: columns;
+  justify-content: space-evenly;
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    width: 85%;
+  }
+  @media (min-width: ${({ theme }) =>
+      theme.breakpoints.lg}) and (max-height: 800px) {
+    width: 45%;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xxl}) {
+    width: 45%;
+  }
+`;
 
 export function Home() {
-  const theme = useTheme();
-  const mdAndUp = useMedia('md');
+  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
+  const changeTitle = useCallback(() => {
+    setIsAnimationCompleted(true);
+  }, []);
   return (
-    <MotionPage>
-      <div
-        style={{
-          maxHeight: `calc(100vh - ${headerHeight} - ${
-            mdAndUp ? '0vh' : theme.space.xl
-          } - ${pageWrapperPaddingBottom} - ${footerHeight})`,
-        }}
-      >
-        <Typography as="h1">Home</Typography>
-        <Svg />
-      </div>
-    </MotionPage>
+    <AnimatedPage>
+      <AnimatedTitles
+        titleOne="Abstract."
+        titleTwo="Artworks."
+        showSecondTitle={isAnimationCompleted}
+      />
+      <SvgWrapper>
+        <Svg animationsCompleted={changeTitle} />
+      </SvgWrapper>
+    </AnimatedPage>
   );
 }

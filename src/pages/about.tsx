@@ -1,11 +1,11 @@
-import { MotionPage } from '../components/motionPage';
+import { AnimatedPage } from '../components/animatedPage';
 import { DescriptionsList } from '../components/descriptionsList/index';
 import { aboutContent } from '../content/about';
 
 export function About() {
   return (
-    <MotionPage>
+    <AnimatedPage>
       <DescriptionsList list={aboutContent} isLastItemBeforeFooter />
-    </MotionPage>
+    </AnimatedPage>
   );
 }

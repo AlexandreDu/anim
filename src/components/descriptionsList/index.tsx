@@ -19,7 +19,7 @@ export function DescriptionsList({
 }: DescriptionsListProps) {
   const mdAndUp = useMedia('md');
   return (
-    <Stack direction="vertical" space={mdAndUp ? 'none' : '2xl'}>
+    <Stack direction="vertical" space={mdAndUp ? 'none' : 'xxl'}>
       {list.map(
         (
           {

@@ -6,13 +6,15 @@ export const Layout = styled.div`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.background};
   transition: all 0.5s;
-  @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     align-items: center;
   }
 `;
 export const pageWrapperPaddingTop = headerHeight;
 export const pageWrapperPaddingBottom = '1.5rem';
+
 export const PageWrapper = styled.div`
+  width: 100%;
   padding: ${pageWrapperPaddingTop} 1.5rem 1.5rem 1.5rem;
   flex-grow: 1;
   display: flex;

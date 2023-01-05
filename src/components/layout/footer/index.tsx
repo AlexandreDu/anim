@@ -1,5 +1,6 @@
 import * as Styled from './styles';
 
 export function Footer() {
-  return <Styled.Footer>Art</Styled.Footer>;
+  const currentDate = new Date().getFullYear();
+  return <Styled.Footer>{currentDate}</Styled.Footer>;
 }
