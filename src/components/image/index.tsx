@@ -1,9 +1,9 @@
 import * as Styled from './styles';
 import type { ImageProps } from '../../types';
 
-export function Image({ src }: ImageProps) {
-  return <Styled.Image src={src} alt={src} />;
-}
+// export function Image({ src }: ImageProps) {
+//   return <Styled.Image src={src} alt={src} />;
+// }
 
 export function FadeInImage({ src }: ImageProps) {
   return (

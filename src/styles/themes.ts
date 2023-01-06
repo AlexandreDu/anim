@@ -38,12 +38,18 @@ export const base: BaseTheme = {
     xl: '4rem',
   },
 };
+const sharedColors = {
+  fushia: '#c1b',
+  lightDark: '#3d3d3d',
+};
 export const light = {
   background: '#fff',
   text: '#000',
+  ...sharedColors,
 };
 
 export const dark = {
   background: '#1a1a1a',
   text: '#fff',
+  ...sharedColors,
 };

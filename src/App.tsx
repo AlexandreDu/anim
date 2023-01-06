@@ -7,8 +7,8 @@ import { AnimatedRoutes } from './components/animatedRoutes';
 const App: React.FC = () => {
   return (
     <>
-      <GlobalStyle />
       <ThemesProvider>
+        <GlobalStyle />
         <Layout>
           <AnimatedRoutes />
         </Layout>
