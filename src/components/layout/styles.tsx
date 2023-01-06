@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { headerHeight } from './header/styles';
 export const Layout = styled.div`
   min-height: 100vh;
-  min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.background};
