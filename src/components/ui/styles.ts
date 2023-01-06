@@ -25,7 +25,7 @@ export const ScrollSnapWrapper = styled.div<{ minHeightToSubstract?: string }>`
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     display: flex;
     scroll-snap-align: start;
-    min-height: calc(
+    height: calc(
       100vh -
         ${({ minHeightToSubstract }) =>
           minHeightToSubstract ? minHeightToSubstract : '0vh'}

@@ -1,6 +1,7 @@
 import type { DescriptionProps } from '../../types';
 
-import { motion } from 'framer-motion';
+import { useRef, useEffect } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 import { useMedia } from '../../hooks/useMedia';
 
@@ -19,8 +20,19 @@ export function Description({
   links,
   linksColor,
   src,
+  id,
+  setCurrentAnchor,
 }: DescriptionProps) {
   const mdAndUp = useMedia('md');
+
+  const descriptionRef = useRef(null);
+  const isInView = useInView(descriptionRef);
+  useEffect(() => {
+    // console.log('isInView', isInView, id);
+    if (isInView) setCurrentAnchor(id);
+    // setCurrentAnchor is a SetStateAction, so we don't have to put in dependencies array since it won't change accross renders
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isInView, id]);
   return (
     <Styled.Description>
       <Flex>
@@ -32,6 +44,7 @@ export function Description({
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
             viewport={{ once: true }}
+            ref={descriptionRef}
           >
             <Typography as="p" variant={mdAndUp ? 'h3' : 'p'}>
               {content}

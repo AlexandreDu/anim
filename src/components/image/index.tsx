@@ -18,6 +18,7 @@ export function FadeInImage({ src }: ImageProps) {
           opacity: 1,
           scale: 1.25,
         }}
+        viewport={{ once: true, margin: '-25%' }}
         transition={{ ease: 'easeOut', duration: 0.75 }}
       />
     </Styled.ImageWrapper>

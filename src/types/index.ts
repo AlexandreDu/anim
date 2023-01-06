@@ -2,6 +2,9 @@ import React, { PropsWithChildren } from 'react';
 import { Path } from 'react-router-dom';
 import { TextColor, Text } from '../enum';
 
+type Id = string;
+type StaticTitle = string;
+type AnimatedTitle = string;
 // theme
 export type BaseTheme = {
   breakpoints: { [key in BreakPoints]: string };
@@ -20,6 +23,14 @@ export type BreakPoints = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 // ThemesProvider
 export type ThemesProviderProps = PropsWithChildren;
+
+// useAnchors
+export type useAnchorsProps = {
+  staticTitle: StaticTitle;
+  animatedTitle: AnimatedTitle;
+  id: Id;
+  [key: string]: unknown;
+}[];
 
 // Layout
 export type LayoutProps = PropsWithChildren;
@@ -59,7 +70,7 @@ type To = string | Partial<Path>;
 export interface LinkProps
   extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
   replace?: boolean;
-  state?: any;
+  state?: unknown;
   to: To;
   reloadDocument?: boolean;
 }
@@ -67,10 +78,9 @@ export interface LinkProps
 export type NavLinkProps = LinkProps;
 
 export type DescriptionsListProps = {
-  isLastItemBeforeFooter?: boolean;
   list: {
-    staticTitle: string;
-    animatedTitle: string;
+    staticTitle: StaticTitle;
+    animatedTitle: AnimatedTitle;
     colorOne: string;
     colorTwo: string;
     colorThree: string;
@@ -81,7 +91,10 @@ export type DescriptionsListProps = {
     }[];
     linksColor: string;
     src?: string;
+    id: Id;
   }[];
+  isLastItemBeforeFooter?: boolean;
+  setCurrentAnchor: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export type DescriptionProps = {
@@ -90,6 +103,8 @@ export type DescriptionProps = {
   links?: LinkProps[];
   linksColor?: string;
   src?: string;
+  id: Id;
+  setCurrentAnchor: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export type PolymorphicComponentProps<

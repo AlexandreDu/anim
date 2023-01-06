@@ -16,8 +16,10 @@ import { footerHeight } from '../layout/footer/styles';
 export function DescriptionsList({
   isLastItemBeforeFooter,
   list,
+  setCurrentAnchor,
 }: DescriptionsListProps) {
   const mdAndUp = useMedia('md');
+
   return (
     <Stack direction="vertical" space={mdAndUp ? 'none' : 'xxl'}>
       {list.map(
@@ -32,6 +34,7 @@ export function DescriptionsList({
             links,
             linksColor,
             src,
+            id,
           },
           index
         ) => {
@@ -60,6 +63,8 @@ export function DescriptionsList({
                 links={links}
                 linksColor={linksColor}
                 src={src}
+                id={id}
+                setCurrentAnchor={setCurrentAnchor}
               />
             </ScrollSnapWrapper>
           );

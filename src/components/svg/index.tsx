@@ -22,6 +22,7 @@ export function HomeSvg({
       });
 
       await rectControls.start({
+        x: 0,
         pathLength: 1.1,
         transition: { ease: 'easeInOut', duration: 1 },
       });
@@ -34,7 +35,6 @@ export function HomeSvg({
         transition: { ease: 'easeInOut', duration: 1 },
       });
       await lineControls.start((i) => {
-        console.log('i', i);
         return {
           pathLength: 1.1,
           transition: { ease: 'easeInOut', duration: 1, delay: i * 0.5 },
@@ -65,7 +65,7 @@ export function HomeSvg({
       />
       <motion.circle
         stroke={'#c1b'}
-        strokeWidth={2}
+        strokeWidth={1}
         initial={{ pathLength: 0 }}
         animate={circleControls}
         r="25"
@@ -73,13 +73,14 @@ export function HomeSvg({
         cy="30"
       />
       <motion.rect
-        // stroke={'#ef270a'}
         x="60"
         y="6"
+        stroke={theme.colors.text}
         initial={{
           width: 30,
           height: 30,
           pathLength: 0,
+          x: 20,
           fill: theme.colors.background,
         }}
         animate={rectControls}

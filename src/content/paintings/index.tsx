@@ -14,6 +14,7 @@ export const paintingsContent = [
     links: [{ children: 'About', to: '/about' }],
     linksColor: '#c1b',
     src: artOnePic,
+    id: '1',
   },
   {
     staticTitle: 'Painting',
@@ -25,6 +26,7 @@ export const paintingsContent = [
     links: [{ children: 'About', to: '/about' }],
     linksColor: '#ef270a',
     src: artTwoPic,
+    id: '2',
   },
   {
     staticTitle: 'Painting',
@@ -36,5 +38,6 @@ export const paintingsContent = [
     links: [{ children: 'About', to: '/about' }],
     linksColor: '#5b9fad',
     src: artThreePic,
+    id: '3',
   },
 ];

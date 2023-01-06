@@ -8,6 +8,7 @@ export const aboutContent = [
     content:
       "Art refers to a diverse range of human activities in creating visual, auditory or performing artifacts. The artworks express the author's imaginative or technical skill. Art is intended to be appreciated for its beauty or emotional power.",
     linksColor: '#c1b',
+    id: '1',
   },
   {
     staticTitle: 'About ',
@@ -18,5 +19,6 @@ export const aboutContent = [
     content:
       'An artist is a person engaged in an activity related to creating art, practicing the arts, or demonstrating an art. The common usage in both everyday speech and academic discourse refers to a practitioner in the visual arts only.',
     linksColor: '#ef270a',
+    id: '2',
   },
 ];
