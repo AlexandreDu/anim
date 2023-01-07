@@ -3,8 +3,10 @@ import type { FullTheme } from '../../styles/themes';
 
 import { ThemeProvider } from 'styled-components';
 
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { base, light, dark } from '../../styles/themes';
+
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 export const DarkModeContext = createContext(true);
 export const DarkModeUpdateContext = createContext<() => void>(() =>
@@ -12,14 +14,25 @@ export const DarkModeUpdateContext = createContext<() => void>(() =>
 );
 
 export function ThemesProvider({ children }: ThemesProviderProps) {
-  const [darkMode, setDarkMode] = useState(true);
-  const fullTheme: FullTheme = { ...base, colors: darkMode ? dark : light };
+  const [darkMode, setDarkMode] = useLocalStorage({
+    key: 'mode',
+    initialValue: 'true',
+  });
+
+  const fullTheme: FullTheme = {
+    ...base,
+    colors: darkMode === 'true' ? dark : light,
+  };
+
   function toggleDarkMode() {
-    setDarkMode((prevDarkMode) => !prevDarkMode);
+    setDarkMode((prevDarkMode) => {
+      return prevDarkMode === 'true' ? 'false' : 'true';
+    });
   }
+
   return (
     <ThemeProvider theme={fullTheme}>
-      <DarkModeContext.Provider value={darkMode}>
+      <DarkModeContext.Provider value={darkMode === 'true'}>
         <DarkModeUpdateContext.Provider value={toggleDarkMode}>
           {children}
         </DarkModeUpdateContext.Provider>
