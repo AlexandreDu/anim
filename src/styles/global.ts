@@ -26,6 +26,8 @@ export default createGlobalStyle`
     html {
         scroll-snap-type: y mandatory;
         scroll-padding: ${headerHeight} 0 0 0;
+        overflow-y: scroll;
+ 
     }
     body {
         background-color: ${({ theme }) => theme.colors.background}
