@@ -16,23 +16,23 @@ export const DarkModeUpdateContext = createContext<() => void>(() =>
 export function ThemesProvider({ children }: ThemesProviderProps) {
   const [darkMode, setDarkMode] = useLocalStorage({
     key: 'mode',
-    initialValue: 'true',
+    initialValue: true,
   });
 
   const fullTheme: FullTheme = {
     ...base,
-    colors: darkMode === 'true' ? dark : light,
+    colors: darkMode ? dark : light,
   };
 
   function toggleDarkMode() {
     setDarkMode((prevDarkMode) => {
-      return prevDarkMode === 'true' ? 'false' : 'true';
+      return !prevDarkMode;
     });
   }
 
   return (
     <ThemeProvider theme={fullTheme}>
-      <DarkModeContext.Provider value={darkMode === 'true'}>
+      <DarkModeContext.Provider value={darkMode}>
         <DarkModeUpdateContext.Provider value={toggleDarkMode}>
           {children}
         </DarkModeUpdateContext.Provider>

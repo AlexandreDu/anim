@@ -24,6 +24,11 @@ export type BreakPoints = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 // ThemesProvider
 export type ThemesProviderProps = PropsWithChildren;
 
+// useLocalStorage
+export type UseLocalStorageProps<T> = {
+  key: string;
+  initialValue: T;
+};
 // useAnchors
 export type useAnchorsProps = {
   staticTitle: StaticTitle;

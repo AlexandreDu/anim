@@ -1,23 +1,17 @@
+import type { UseLocalStorageProps } from '../../types';
 import { useState, useEffect } from 'react';
-type useLocalStorageProps = {
-  key: string;
-  initialValue: string;
-};
 
-export function useLocalStorage({
+export function useLocalStorage<T>({
   key,
   initialValue,
-}: useLocalStorageProps): [
-  unknown,
-  React.Dispatch<React.SetStateAction<string>>
-] {
+}: UseLocalStorageProps<T>): [T, React.Dispatch<React.SetStateAction<T>>] {
   const [value, setValue] = useState(() => {
     const persistedValue = localStorage.getItem(key);
-    return persistedValue ? persistedValue : initialValue;
+    return persistedValue ? JSON.parse(persistedValue) : initialValue;
   });
 
   useEffect(() => {
-    localStorage.setItem(key, value);
+    localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
 
   return [value, setValue];
